@@ -5,13 +5,14 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import { StatsCard } from "@/components/StatsCard";
 import { IoMdCalendar } from "react-icons/io";
 import { SearchBar } from "@/components/SearchBar";
-import { FaPlus, FaUserCog } from "react-icons/fa";
 import Image from "next/image";
 import { MdBlock } from "react-icons/md";
 import Link from "next/link";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 function Exhibitions() {
+  const isMobileScreen = useMediaQuery("(max-width: 720px)");
   return (
     <AppLayout>
       <div className="max-w-screen-2xl mx-auto text-white p-4">
@@ -33,11 +34,11 @@ function Exhibitions() {
           />
         </div>
         <div className="flex items-center justify-between text-white mb-8">
-          <div className="basis-3/12 flex-1">
+          <div className="basis-3/12 flex-1 hidden md:block">
             <h1 className="text-xl font-semibold">Exhibitions</h1>
           </div>
 
-          <div className="basis-1/2 flex  justify-end gap-4 items-center font-medium">
+          <div className="md:basis-1/3 basis-full gap-4 items-center font-medium">
             <SearchBar placeholder={"Search"} />
           </div>
         </div>
@@ -50,7 +51,16 @@ function Exhibitions() {
           <ExhibitionCard />
           <ExhibitionCard />
         </div>
-        <Pagination />
+
+        {isMobileScreen ? (
+          <div className="text-center mt-2">
+            <button className="font-medium py-2 px-4 rounded btn-gradient">
+              View More
+            </button>
+          </div>
+        ) : (
+          <Pagination />
+        )}
       </div>
     </AppLayout>
   );

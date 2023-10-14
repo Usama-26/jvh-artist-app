@@ -20,9 +20,12 @@ import {
 import { BsTelephoneFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
 import { Menu } from "@headlessui/react";
+import { HiX } from "react-icons/hi";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
-const SideNav = (props) => {
+const SideNav = ({ isOpen, onToggle }) => {
   const user = useSelector(({ auth }) => auth.user);
+  const isMobileScreen = useMediaQuery("(max-width: 720px)");
   const chatsCount = useRef(0);
   const [contactCount, setContactCount] = useState(0);
   const usersData = useSelector(({ auth }) => auth.users);
@@ -109,15 +112,23 @@ const SideNav = (props) => {
   }, []);
 
   return (
-    <div className="sidenav fixed top-0 left-0 h-screen md:block hidden sidenav-width  bg-[#1E1E1E] overflow-auto">
+    <div
+      className={`sidenav fixed top-0 left-0 h-screen md:block transition-all duration-300 ${
+        isOpen ? "ml-0 w-4/5" : "md:ml-0 -ml-96 "
+      } sidenav-width  bg-[#1E1E1E] overflow-auto z-50`}
+    >
       <Image
         src="/jvh-logo@2x.png"
         width={125}
         height={105}
         alt="Company Logo"
-        className="w-24 mx-auto mb-4 md:mb-6"
+        className="md:w-24 w-20 mx-auto mb-4 md:mb-6"
       />
-
+      {isMobileScreen && (
+        <button onClick={onToggle} className="absolute top-2 right-2">
+          <HiX className="w-6 h-6 fill-white" />
+        </button>
+      )}
       <ul className="my-4 text-white">
         <li>
           <Link
@@ -157,7 +168,7 @@ const SideNav = (props) => {
 
         <li>
           <Link
-            href="/artist/settings"
+            href="/artist/profile"
             className={`${styles["list-item"]} ${
               router.pathname === "/artist/profile" ? "bg-[#21DDB8]" : ""
             }`}

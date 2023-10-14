@@ -12,12 +12,12 @@ const lora = Lora({
 function App({ Component, pageProps }) {
   return (
     <main className={`${lora.variable} font-lora`}>
-      <ToastContainer
+      {/* <ToastContainer
         autoClose={2000}
         pauseOnHover={false}
         pauseOnFocusLoss={false}
         position={"top-center"}
-      />
+      /> */}
       <Component {...pageProps} />
     </main>
   );

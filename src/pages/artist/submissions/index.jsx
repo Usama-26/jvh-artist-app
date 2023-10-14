@@ -125,20 +125,22 @@ function Submissions(props) {
   return (
     <AppLayout>
       <div className="max-w-screen-2xl mx-auto text-white p-4">
-        <div className="flex items-center gap-4 justify-between text-white mb-8">
+        <div className="flex md:flex-row flex-col items-center gap-4 justify-between text-white mb-8">
           <div className="basis-3/12 flex-1">
             <h1 className="text-xl font-semibold">Submissions</h1>
           </div>
-
-          <SearchBar placeholder={"Search by Exhibition"} />
-
-          <Link
-            href={"/artist/submissions/add"}
-            className="inline-flex items-center gap-3  font-semibold btn-gradient btn-primary uppercase"
-          >
-            <FaCirclePlus className="w-4 h-4 fill-white" />
-            <span>Add submission</span>
-          </Link>
+          <div>
+            <SearchBar placeholder={"Search by Exhibition"} />
+          </div>
+          <div>
+            <Link
+              href={"/artist/submissions/add"}
+              className="inline-flex items-center gap-3  font-semibold btn-gradient btn-primary uppercase"
+            >
+              <FaCirclePlus className="w-4 h-4 fill-white" />
+              <span>Add submission</span>
+            </Link>
+          </div>
         </div>
         <div className="grid lg:grid-cols-3 gap-4 md:grid-cols-2 grid-cols-1">
           <SubmissionCard />

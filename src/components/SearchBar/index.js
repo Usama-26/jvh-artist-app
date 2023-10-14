@@ -6,7 +6,7 @@ export function SearchBar({ onClick, onChange, placeholder }) {
     <div className="relative">
       <input
         type="text"
-        className="lg:w-80 sm:w-72 w-60 py-2 px-4 pr-8 rounded-full bg-[#F2F2F2] border-gray-300 border outline-gray-400 bg-transparent placeholder:text-sm text-sm z-0"
+        className="w-full py-2 pr-8 bg-[#F2F2F2] border-gray-300 border-b focus:border-primary focus:outline-none bg-transparent placeholder:text-sm text-sm z-0"
         placeholder={placeholder || "Search"}
         // value={search}
         onChange={onChange}

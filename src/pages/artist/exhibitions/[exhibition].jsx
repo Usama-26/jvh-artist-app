@@ -1,22 +1,38 @@
 /* eslint-disable @next/next/no-img-element */
+import useMediaQuery from "@/hooks/useMediaQuery";
 import AppLayout from "@/layouts/AppLayout";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { BiChevronLeft } from "react-icons/bi";
 import { FaCirclePlus, FaFileCirclePlus } from "react-icons/fa6";
 import { MdBlock } from "react-icons/md";
 
 export default function Exhibition() {
   const router = useRouter();
+  const isMobileScreen = useMediaQuery("(max-width: 720px)");
   return (
     <AppLayout>
       <div className="max-w-screen-2xl mx-auto text-white p-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-2xl font-bold">Exhibition Details</h1>
-          <div className="rounded-lg bg-[#2D2D2D] p-8 text-sm">
-            <button className="hover:underline" onClick={router.back}>
-              &larr; Back
-            </button>
+          {isMobileScreen && (
+            <div className="mb-4">
+              <button className=" hover:underline" onClick={router.back}>
+                <BiChevronLeft className="inline w-6 h-6" />
+                <span className="text-xs">Back</span>
+              </button>
+            </div>
+          )}
+          <h1 className="text-2xl font-bold md:text-left text-center">
+            Exhibition Details
+          </h1>
+          <div className="rounded-lg md:bg-[#2D2D2D] md:p-8 p-4 text-sm">
+            {!isMobileScreen && (
+              <button className=" hover:underline" onClick={router.back}>
+                <BiChevronLeft className="inline w-6 h-6" />
+                <span className="text-xs">Back</span>
+              </button>
+            )}
             <div className="m-4">
               <img
                 src={"/test-card-image.png"}
@@ -31,7 +47,7 @@ export default function Exhibition() {
                 <h6 className=" text-center">Exhibtion 1</h6>
                 <h2 className="text-lg font-bold text-center">Complete</h2>
               </div>
-              <div className="max-w-lg mx-auto flex justify-between py-4 mb-4">
+              <div className="max-w-lg mx-auto flex md:flex-row flex-col md:text-left text-center   justify-between gap-8 md:gap-0 py-4 mb-4">
                 <div>
                   <h4 className="mb-2 font-medium">Exhibition Period:</h4>
                   <h6>
