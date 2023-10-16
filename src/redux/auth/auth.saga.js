@@ -72,7 +72,7 @@ function* loginSaga(action) {
     yield put(loginSuccess(_user, _tokens));
     yield put(getUserSuccess(_user));
     socket.emit("new-staff-add", _user?.id);
-    Router.push("/admin");
+    Router.push("/artist");
     // toast.success("Logged in Successfully", {});
   } catch (error) {
     if (action && action.callback) {

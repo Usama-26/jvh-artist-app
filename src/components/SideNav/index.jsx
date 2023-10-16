@@ -229,13 +229,13 @@ const SideNav = ({ isOpen, onToggle }) => {
         )}
       </ul>
       <div className="border-t bg-[#1E1E1E] border-gray-700 sticky bottom-0 text-white">
-        <Link
-          href="/artist/logout"
-          className={`block px-10 py-3 text-sm 2xl:text-[18px] text-[#21DDB8] hover:bg-gray-700`}
+        <button
+          onClick={handleLogout}
+          className={`w-full text-left px-10 py-3 text-sm 2xl:text-[18px] text-[#21DDB8] hover:bg-gray-700`}
         >
           <FiLogOut className={"w-5 h-5 inline stroke-[#21DDB8] mr-2"} />
           Logout
-        </Link>
+        </button>
       </div>
     </div>
   );
