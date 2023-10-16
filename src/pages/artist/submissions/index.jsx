@@ -199,9 +199,12 @@ function SubmissionCard() {
 
       <hr className="border-t border-gray-600" />
       <div className="m-4 text-center">
-        <button className="w-full py-1 px-2 rounded btn-gradient">
+        <Link
+          href={"/artist/submissions/submission"}
+          className="w-full py-1 px-2 rounded btn-gradient"
+        >
           Edit Submission
-        </button>
+        </Link>
       </div>
     </div>
   );

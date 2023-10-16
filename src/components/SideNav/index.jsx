@@ -165,20 +165,59 @@ const SideNav = ({ isOpen, onToggle }) => {
             Submissions
           </Link>
         </li>
-
-        <li>
-          <Link
-            href="/artist/profile"
-            className={`${styles["list-item"]} ${
-              router.pathname === "/artist/profile" ? "bg-[#21DDB8]" : ""
-            }`}
-          >
-            <div className="relative inline-flex items-center justify-center">
-              <BiCog className={styles["list-item__icon"]} />
-              Profile Settings
-            </div>
-          </Link>
-        </li>
+        {!isMobileScreen ? (
+          <li>
+            <Link
+              href="/artist/profile"
+              className={`${styles["list-item"]} ${
+                router.pathname === "/artist/profile" ? "bg-[#21DDB8]" : ""
+              }`}
+            >
+              <FaListCheck className={styles["list-item__icon"]} />
+              Profile
+            </Link>
+          </li>
+        ) : (
+          <li>
+            <Menu>
+              <Menu.Button
+                className={`${styles["list-item"]} w-full text-left`}
+              >
+                {({ open }) => (
+                  <span className="flex justify-between items-center">
+                    <span>
+                      <FaUserCog className={styles["list-item__icon"]} />
+                      <span>Profile Settings</span>
+                    </span>
+                    <BiChevronRight
+                      className={`w-5 h-5 fill-primary transition-all duration-200 ${
+                        open ? "rotate-90" : "rotate-0"
+                      }`}
+                    />
+                  </span>
+                )}
+              </Menu.Button>
+              <Menu.Items as="ul" className={("border-l-2", "ml-10")}>
+                <Menu.Item as={"li"}>
+                  <Link
+                    className="block px-10 py-2  ml-2  text-sm hover:bg-[#21DDB855] font-medium border-l-2"
+                    href={"/artist/profile/personal"}
+                  >
+                    Personal Details
+                  </Link>
+                </Menu.Item>
+                <Menu.Item as={"li"}>
+                  <Link
+                    className="block px-10 py-2  ml-2  text-sm hover:bg-[#21DDB855] font-medium border-l-2"
+                    href={"/artist/profile/payment"}
+                  >
+                    Bank Details
+                  </Link>
+                </Menu.Item>
+              </Menu.Items>
+            </Menu>
+          </li>
+        )}
       </ul>
       <div className="border-t bg-[#1E1E1E] border-gray-700 sticky bottom-0 text-white">
         <Link
