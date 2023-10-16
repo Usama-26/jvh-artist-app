@@ -66,7 +66,7 @@ function ExhibitionCard() {
       <div className="m-4 space-y-3">
         <h2 className="font-semibold">Complete</h2>
         <div className="space-y-1">
-          <span className="flex justify-between items-center">
+          <span className="flex justify-between items-cente ">
             <h2 className="font-semibold">Earth Laughs in Flowers</h2>
             <span className="text-xs">Exhibition 1</span>
           </span>

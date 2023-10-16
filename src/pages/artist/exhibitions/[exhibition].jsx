@@ -105,10 +105,13 @@ export default function Exhibition() {
                   <span>Submissions Closed</span>
                 </button> */}
 
-                <button className="inline-flex items-center gap-3 text-lg font-semibold btn-gradient btn-primary uppercase">
+                <Link
+                  href={"/artist/submissions/add"}
+                  className="inline-flex items-center gap-3 text-lg font-semibold btn-gradient btn-primary uppercase"
+                >
                   <FaCirclePlus className="w-6 h-6 fill-white" />
                   <span>Add your Work</span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
