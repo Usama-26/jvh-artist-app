@@ -62,7 +62,10 @@ const SideNav = ({ isOpen, onToggle }) => {
       setContactCount(count + 1);
     }
   });
-
+  function closePanel() {
+    if (isMobileScreen) return;
+    onToggle();
+  }
   useEffect(() => {
     if (router.asPath === "/artist/notifications") {
       setContactCount(0);
@@ -133,6 +136,7 @@ const SideNav = ({ isOpen, onToggle }) => {
         <li>
           <Link
             href="/artist"
+            onClick={closePanel}
             className={`${styles["list-item"]} ${
               router.pathname === "/artist" ? "bg-[#21DDB8]" : ""
             }`}
@@ -144,6 +148,7 @@ const SideNav = ({ isOpen, onToggle }) => {
 
         <li>
           <Link
+            onClick={closePanel}
             href="/artist/exhibitions"
             className={`${styles["list-item"]} ${
               router.pathname === "/artist/exhibitions" ? "bg-[#21DDB8]" : ""
@@ -156,6 +161,7 @@ const SideNav = ({ isOpen, onToggle }) => {
 
         <li>
           <Link
+            onClick={closePanel}
             href="/artist/submissions"
             className={`${styles["list-item"]} ${
               router.pathname === "/artist/submissions" ? "bg-[#21DDB8]" : ""
@@ -168,6 +174,7 @@ const SideNav = ({ isOpen, onToggle }) => {
         {!isMobileScreen ? (
           <li>
             <Link
+              onClick={closePanel}
               href="/artist/profile"
               className={`${styles["list-item"]} ${
                 router.pathname === "/artist/profile" ? "bg-[#21DDB8]" : ""
@@ -201,6 +208,7 @@ const SideNav = ({ isOpen, onToggle }) => {
                 <Menu.Item as={"li"}>
                   <Link
                     className="block px-10 py-2  ml-2  text-sm hover:bg-[#21DDB855] font-medium border-l-2"
+                    onClick={closePanel}
                     href={"/artist/profile/personal"}
                   >
                     Personal Details
@@ -209,6 +217,7 @@ const SideNav = ({ isOpen, onToggle }) => {
                 <Menu.Item as={"li"}>
                   <Link
                     className="block px-10 py-2  ml-2  text-sm hover:bg-[#21DDB855] font-medium border-l-2"
+                    onClick={closePanel}
                     href={"/artist/profile/payment"}
                   >
                     Bank Details
