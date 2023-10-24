@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { FaCamera } from "react-icons/fa";
 
-const Settings = (props) => {
+const PersonalSettings = (props) => {
   const router = useRouter();
   const userData = props.userData;
   const [password, setPassword] = useState("");
@@ -148,7 +148,7 @@ const Settings = (props) => {
     </AppLayout>
   );
 };
-export default withAuth(Settings);
+export default PersonalSettings;
 
 function ProfileForm() {
   return (

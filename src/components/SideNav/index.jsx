@@ -10,14 +10,8 @@ import socket from "../../../socket";
 import { getUsers, logOutRequest } from "@/redux/auth/auth.actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import {
-  BiChevronDown,
-  BiChevronRight,
-  BiCog,
-  BiSolidBarChartSquare,
-  BiImage,
-} from "react-icons/bi";
-import { BsTelephoneFill } from "react-icons/bs";
+import { BiChevronRight } from "react-icons/bi";
+
 import { FiLogOut } from "react-icons/fi";
 import { Menu } from "@headlessui/react";
 import { HiX } from "react-icons/hi";
@@ -117,7 +111,7 @@ const SideNav = ({ isOpen, onToggle }) => {
   return (
     <div
       className={`sidenav fixed top-0 left-0 h-screen md:block transition-all duration-300 ${
-        isOpen ? "ml-0 w-4/5" : "md:ml-0 -ml-96 "
+        isOpen ? "ml-0" : "md:ml-0 -ml-96 "
       } sidenav-width  bg-[#1E1E1E] overflow-auto z-50`}
     >
       <Image

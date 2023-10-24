@@ -1,27 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useRef } from "react";
 import AppLayout from "@/layouts/AppLayout";
-import { Dialog, Tab } from "@headlessui/react";
+
 import { useDispatch, useSelector } from "react-redux";
-import { FaHandHoldingMedical, FaPlus, FaUserCog } from "react-icons/fa";
-import { HiOutlineRefresh } from "react-icons/hi";
+
 import { getBlogs, addBlogs } from "@/redux/features/features.actions";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-import { withAuth } from "@/components/Helpers/withAuth";
-import Spinner from "@/components/svgs/spinner";
-import dynamic from "next/dynamic";
-import { RefreshButton } from "@/components/RefreshButton";
+
 import { SearchBar } from "@/components/SearchBar";
 import { logsAPI } from "@/components/LogsAPI";
-import { CleardataGear } from "@/components/CleardataGear";
-import { StatsCard } from "@/components/StatsCard";
-import { IoMdCalendar } from "react-icons/io";
+
 import Link from "next/link";
 import Image from "next/image";
-import { AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai";
-import { MdBlock, MdEdit } from "react-icons/md";
+
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { FaCirclePlus } from "react-icons/fa6";
 

@@ -6,12 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { getUser } from "@/redux/auth/auth.actions";
 import { toast } from "react-toastify";
-
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { FaCamera } from "react-icons/fa";
 
-const Settings = (props) => {
+const ProfileSettings = (props) => {
   const router = useRouter();
   const userData = props.userData;
   const [password, setPassword] = useState("");
@@ -148,7 +147,7 @@ const Settings = (props) => {
     </AppLayout>
   );
 };
-export default withAuth(Settings);
+export default ProfileSettings;
 
 function ProfileForm() {
   return (

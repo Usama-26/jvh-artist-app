@@ -6,7 +6,7 @@
     @apply bg-[#171717];
   }
   .sidenav-width {
-    @apply md:w-[300px] 2xl:w-[400px];
+    @apply w-4/5 md:w-[300px] 2xl:w-[400px];
   }
 
   .main-margin {
